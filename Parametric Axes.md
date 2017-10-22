@@ -61,6 +61,10 @@ Type users are familiar with the attributes of a typeface family that combine to
 
 Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.
 
+~~~Python
+box = page['Main']['Content']
+~~~
+
 This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.
 
 ###B. Treatment Axes
@@ -106,6 +110,8 @@ Definitions and recipes
 
 ###xtra
 
+![docs/images/animation-xtra.gif](docs/images/animation-xtra.gif)
+
 * **Tag** xtra
 * **Name:** x transparent
 * **Type:** Primary axis
@@ -119,6 +125,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###xopq
+
 * **Tag:** xopq
 * **Name:** x opaque
 * **Type:** Primary axis
@@ -131,6 +138,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###xtrk
+
 * **Tag:** xtrk
 * **Name:** x tracking
 * **Type:** Primary axis
@@ -143,8 +151,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###ytra
+
 * **Tag:** ytra
 * **Name:** y transparent
+* **Type:** Primary axis
 * **Description:** Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.
 * **Recipe:** Vertical counter width varies. Axis value scales the width of vertical counters, if they exist. Bars are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** 0 to 2000
@@ -155,8 +165,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###yopq
+
 * **Tag:** yopq
-**Name:** y opaque
+* **Name:** y opaque
+* **Type:** Primary axis
 * **Description:** Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.
 * **Recipe:** Bar width varies. Vertical counter heights, if they exist contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** -1000 to 2000
@@ -167,8 +179,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###ytlc
+
 * **Tag:** ytlc
 * **Name:** y transparent lowercase
+* **Type:** Primary axis
 * **Description:** assigns a “white” per mille value to each instance of the design space
 * **Recipe:** Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** 0 to 1000
@@ -179,8 +193,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###ytuc
+
 * **Tag:** ytuc
 * **Name:** y transparent uppercase
+* **Type:** Primary axis
 * **Description:** a “white” per mille value for each uppercase height in the design space
 * **Recipe:** Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** -1000 to 1000
@@ -191,8 +207,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em
 * **Related axis information:**
 
 ###ytde
+
 * **Tag:** ytde
 * **Name:** y transparent descender
+* **Type:** Primary axis
 * **Description:** assigns a “white” per mille value to each instance of the design space
 * **Recipe:** Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** -1000 to 0
@@ -203,8 +221,10 @@ Scale interpretation: values can be interpreted as per-mille-of-em
 * **Related axis information:**
 
 ###ytas
+
 * **Tag:** ytas
 * **Name:** y transparent ascender 
+* **Type:** Primary axis
 * **Description:** assigns a “white” per mille value to each instance of the design space
 * **Recipe:** Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.
 * **Valid numeric range:** 0 to 1000
@@ -221,6 +241,22 @@ box = page['Introduction']
 ~~~
 
 ##Composite axes
+
+###wght
+
+* **Tag:** wght
+* **Name:** weight 
+* **Type:** Composite axis (registered)
+* **Included primary axes:** 
+* **Description:** assigns a “white” per mille value to each instance of the design space
+* **Recipe:** Follows the “traditional” weight axis, which may includes change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.
+* **Valid numeric range:** 0 to 1000
+* **Scale interpretation:** values can be interpreted as per-mille-of-em
+* **Recommended “normal” value:** sample value 750
+* **Suggested programmatic interactions:**
+* **Suggested user interactions:**
+* **Related axis information:**
+
 
 ~~~Python
 page = doc.newPage(title='Usage', name='usage.html', template='home')

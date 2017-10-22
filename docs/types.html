@@ -27,6 +27,9 @@ box = page['Introduction']
 <h3>A. Primary Type Axes</h3>
 <p>Type users are familiar with the attributes of a typeface family that combine to make up its appearance. Traditionally, these attributes are available as named and instantiated styles in font families. Some of these attributes are already recorded in fonts conforming to the OpenType v1.0 specification, as values in the OS/2 table, and in other tables of the SFNT format in general.</p>
 <p>Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.</p>
+<pre></div></div></div><div class="container mainContent"><div class="row"><div class="eightcol"><div><code class="Python">box = page['Main']['Content']
+</code></pre>
+
 <p>This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.</p>
 <h3>B. Treatment Axes</h3>
 <p>Many treatments of typography—outlining or underlining, as well as adding drop shadows and more—are currently available to users via page description languages and applications, where only a uniform, size-independent transformation of all the glyphs of an instance is the result.</p>
@@ -49,7 +52,7 @@ box = page['Introduction']
 <li>The Composite Axis refer to a common understanding about the usage. The traditional weight axis <strong>[wght]</strong> most often changes weight width and contrast at the same time, also in relation to the setting of the optical size <strong>[opsz]</strong> axis. </li>
 <li>The composite axis can be used to optimize, compensate or redefine the result of combined primary axes. </li>
 </ul>
-<pre></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
+<pre></div></div><div class="fourcol"><div></div></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
 		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
 		</ol></nav></div><div class="fourcol last"></div></div></div><script charset="UTF-8" type="text/javascript">
 

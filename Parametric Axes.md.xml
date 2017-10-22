@@ -41,6 +41,9 @@ box = page['Introduction']
 <h3>A. Primary Type Axes</h3>
 <p>Type users are familiar with the attributes of a typeface family that combine to make up its appearance. Traditionally, these attributes are available as named and instantiated styles in font families. Some of these attributes are already recorded in fonts conforming to the OpenType v1.0 specification, as values in the OS/2 table, and in other tables of the SFNT format in general.</p>
 <p>Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.</p>
+<pre><code class="Python">box = page['Main']['Content']
+</code></pre>
+
 <p>This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.</p>
 <h3>B. Treatment Axes</h3>
 <p>Many treatments of typography—outlining or underlining, as well as adding drop shadows and more—are currently available to users via page description languages and applications, where only a uniform, size-independent transformation of all the glyphs of an instance is the result.</p>
@@ -71,6 +74,7 @@ box = page['Introduction']
 <h2>Primary axes</h2>
 <p>Definitions and recipes</p>
 <h3>xtra</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-xtra.gif" /></p>
 <ul>
 <li><strong>Tag</strong> xtra</li>
 <li><strong>Name:</strong> x transparent</li>
@@ -114,6 +118,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <ul>
 <li><strong>Tag:</strong> ytra</li>
 <li><strong>Name:</strong> y transparent</li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
 <li><strong>Recipe:</strong> Vertical counter width varies. Axis value scales the width of vertical counters, if they exist. Bars are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> 0 to 2000</li>
@@ -125,8 +130,9 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 </ul>
 <h3>yopq</h3>
 <ul>
-<li><strong>Tag:</strong> yopq<br />
-<strong>Name:</strong> y opaque</li>
+<li><strong>Tag:</strong> yopq</li>
+<li><strong>Name:</strong> y opaque</li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
 <li><strong>Recipe:</strong> Bar width varies. Vertical counter heights, if they exist contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> -1000 to 2000</li>
@@ -140,6 +146,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <ul>
 <li><strong>Tag:</strong> ytlc</li>
 <li><strong>Name:</strong> y transparent lowercase</li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
 <li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> 0 to 1000</li>
@@ -153,6 +160,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <ul>
 <li><strong>Tag:</strong> ytuc</li>
 <li><strong>Name:</strong> y transparent uppercase</li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> a “white” per mille value for each uppercase height in the design space</li>
 <li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> -1000 to 1000<br />
@@ -166,6 +174,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em</li>
 <ul>
 <li><strong>Tag:</strong> ytde</li>
 <li><strong>Name:</strong> y transparent descender</li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
 <li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> -1000 to 0</li>
@@ -179,6 +188,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em</li>
 <ul>
 <li><strong>Tag:</strong> ytas</li>
 <li><strong>Name:</strong> y transparent ascender </li>
+<li><strong>Type:</strong> Primary axis</li>
 <li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
 <li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
 <li><strong>Valid numeric range:</strong> 0 to 1000</li>
@@ -194,6 +204,21 @@ box = page['Introduction']
 </code></pre>
 
 <h2>Composite axes</h2>
+<h3>wght</h3>
+<ul>
+<li><strong>Tag:</strong> wght</li>
+<li><strong>Name:</strong> weight </li>
+<li><strong>Type:</strong> Composite axis (registered)</li>
+<li><strong>Included primary axes:</strong> </li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Follows the “traditional” weight axis, which may includes change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.</li>
+<li><strong>Valid numeric range:</strong> 0 to 1000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> sample value 750</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
 <pre><code class="Python">page = doc.newPage(title='Usage', name='usage.html', template='home')
 
 box = page['Introduction']
