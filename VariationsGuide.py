@@ -23,7 +23,7 @@ from pagebot.conditions import *
 # Path to markdown file, including Python code blocks.
 MD_PATH = u"Parametric Axes.md"
 NAME = 'variationsguide'
-DOMAIN = 'https://petrvanblokland.github.io/VariationsGuide/'
+DOMAIN = 'https://petrvanblokland.github.io/VariationsGuide'
 
 DO_GIT = True
 DO_MAMP = not DO_GIT
