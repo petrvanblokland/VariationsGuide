@@ -1,0 +1,45 @@
+
+
+@font-face {
+  font-family: "Upgrade-RegularItalic";
+src: url("Upgrade-Regular_Italic.eot") format("eot"),
+  url("Upgrade-Regular_Italic.woff") format("woff"),
+  url("Upgrade-Regular_Italic.ttf") format("ttf"),
+  url("Upgrade-Regular_Italic.svg") format("svg");
+}
+@font-face {
+  font-family: "Upgrade-Regular";
+src: url("Upgrade-Regular.eot") format("eot"),
+  url("Upgrade-Regular.woff") format("woff"),
+  url("Upgrade-Regular.ttf") format("ttf"),
+  url("Upgrade-Regular.svg") format("svg");
+}
+@font-face {
+  font-family: "Upgrade-SemiboldItalic";
+src: url("Upgrade-Semibold_Italic.eot") format("eot"),
+  url("Upgrade-Semibold_Italic.woff") format("woff"),
+  url("Upgrade-Semibold_Italic.ttf") format("ttf"),
+  url("Upgrade-Semibold_Italic.svg") format("svg");
+}
+@font-face {
+  font-family: "Upgrade-Semibold";
+src: url("Upgrade-Semibold.eot") format("eot"),
+  url("Upgrade-Semibold.woff") format("woff"),
+  url("Upgrade-Semibold.ttf") format("ttf"),
+  url("Upgrade-Semibold.svg") format("svg");}
+
+@font-face {
+  font-family: "Upgrade-BoldItalic";
+src: url("Upgrade-Bold_Italic.eot") format("eot"),
+  url("Upgrade-Bold_Italic.woff") format("woff"),
+  url("Upgrade-Bold_Italic.ttf") format("ttf"),
+  url("Upgrade-Bold_Italic.svg") format("svg");
+}
+@font-face {
+  font-family: "Upgrade-Bold";
+src: url("Upgrade-Bold.eot") format("eot"),
+  url("Upgrade-Bold.woff") format("woff"),
+  url("Upgrade-Bold.ttf") format("ttf"),
+  url("Upgrade-Bold.svg") format("svg");
+}
+ 

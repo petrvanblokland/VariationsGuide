@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document><pre><code class="Python">cid = 'Website'
+
+# H O M E 
+
+doc.title = 'Parametric Axes'
+page = doc.newPage(title='Home', name='index.html', template='home')
+
+doc.footerHtml = &quot;&quot;&quot;Let us know what you think. Do you have any questions for us? &lt;a href=&quot;mailto:info@designdesign.space?subject=Tell me more about Design Design Space&quot;&gt;info@designdesign.space&lt;/a&gt;
+&quot;&quot;&quot;
+
+box = page['Introduction']
+</code></pre>
+
+<h1>Parametric axes</h1>
+<p>A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.</p>
+<p>The reason for that is not a lack of interest, but that the current discussion is on the side with the most variable freedom and design choices exists.<br />
+A type designer can rightfully point out that a change in weight [wght] also implicates a change in width, but the amount depends on optical size, on the details of the design and on taste of the designer. </p>
+<p>The necessity and use of parametric axes in Variable Fonts can best be illustrated with other modular environments, such as the preparation of food.</p>
+<p><img alt="docs/images/FlowerVanilla.png" src="docs/images/FlowerVanilla.png" /></p>
+<h4>If the level of <strong>Granularity</strong> is a measure for flour to be used in certain kinds of bread, then the bakery would not expect an increasing amount of <strong>Vanilla</strong> to be mixed with that level.</h4>
+<p><img alt="docs/images/FlourSaltVanillaPepper.png" src="docs/images/FlourSaltVanillaPepper.png" /></p>
+<h4>Chefs may never be able to agree on the exact ingredients, process and taste of the best <strong>Chowder</strong>, but most will agree that <strong>Salt</strong>, <strong>Pepper</strong> and <strong>Potatos</strong> are separate ingredients. Not to be used in a pre-ordered mixture.</h4>
+<p>To control the quality and behavior of any kind of product, the process of creation has to be broken down into modular behavior, to the least possible amount of independent parameters. </p>
+<p>A cook wants to use separate jars for <strong>Flour</strong> and <strong>Vanilla</strong>. And separate dispensers for <strong>Pepper</strong> and <strong>Salt</strong>, to mix them in exactly the right amount when using them.</p>
+<p><img alt="docs/images/FlowerVanillaChowder.png" src="docs/images/FlowerVanillaChowder.png" /></p>
+<h4>Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.*</h4>
+<p>This guide was prepared in July 2017 for presentation to the public, the specification’s owners, and the OpenType Variations working group. Our goal is to record what we have learned about variable fonts and have put into practice, which we believe will be generally useful to the specification, and to propose a new, systematic approach to registering and using axes.</p>
+<p>This proposal does not seek to classify the designs of typefaces parametrically, only what the values of the parameters are. Furthermore, it is offered as a beginning, suggesting the need for—but not containing—suggestions for many important attributes of non-Latin fonts.</p>
+<p>The registration of the axes here is also intended to be used as part of a system including the registration of what function an axis performs for programs and/or users along the existing path from script selection to the rendered glyph in a document, aka the Mantra. Documentation of that part of the system, including the registration of what function an axis provides, is still in development and will follow soon.</p>
+<p>The registration of the axes here is also intended to be used as part of a system including the registration of what function an axis performs for programs and/or users along the existing path from script selection to the rendered glyph in a document, aka the Mantra. Documentation of that part of the system, including the registration of what function an axis provides, is still in development and will follow soon.</p>
+<pre><code class="Python">box = page['Footer']
+box.append(doc.footerHtml)
+
+page = doc.newPage(title='Types', name='types.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Types of axes</h2>
+<h3>A. Primary Type Axes</h3>
+<p>Type users are familiar with the attributes of a typeface family that combine to make up its appearance. Traditionally, these attributes are available as named and instantiated styles in font families. Some of these attributes are already recorded in fonts conforming to the OpenType v1.0 specification, as values in the OS/2 table, and in other tables of the SFNT format in general.</p>
+<p>Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.</p>
+<p>This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.</p>
+<h3>B. Treatment Axes</h3>
+<p>Many treatments of typography—outlining or underlining, as well as adding drop shadows and more—are currently available to users via page description languages and applications, where only a uniform, size-independent transformation of all the glyphs of an instance is the result.</p>
+<p>Because fonts usually provide a better solution than smearing regular type for “bold” or “obliquing” it for “italic,” and because optical size (the most common treatment of all) is a registered axis, variation axes can provide these and other treatments better than applications. This gives users more precise control per treatment, and per glyph, while also informing applications that these axes exist, and what their value systems are. It also relieves apps from having to provide the treatment, should the user desire to do so, with the font providing the means.</p>
+<h3>C. Non-Latin Axes</h3>
+<p>Today’s multiscript type designer faces two major options when mixing more than one script in a typeface family: to compromise one or both scripts to the ideals of the other; or, alternatively, to make multiple instances of the font to provide uncompromised versions of each.</p>
+<p>The compromises occur in all of the typographic parameters listed in A. Primary Type Axes, and surface in the choices that need to be made in presenting a unified appearance of width, weight, and height among glyphs of different scripts. These compromises come in a variety of sizes, from small (as when Latin and Cyrillic need to work together) to large (as when Chinese and Arabic have to work together). And, of course, there are the supersized compromises in OS fonts, where the typeface family contains fifty-three scripts.</p>
+<p>In these scenarios, the type developer is challenged to come up with a single harmonious solution, per size, to the weights and widths of each glyph, in order to form the correct relationship between transparent and opaque across all of the glyphs of the scripts involved. If users don’t like the type designer’s solutions, they are free to roam the width and weight axes and either programmatically or manually redefine the interscript solutions to weight and width. It’s important to understand that this option is open to the type developer and user without script-specific opaque and transparent attributes, because the proper weight and width per style are solvable in the hands of developers and users without registered weight axes for every script.</p>
+<p>Alignments operate differently in typography. So in variable fonts, they must be able to operate independently of one another at any given weight, width, and size, ahead of whatever decisions occur in those attributes. Until now, all of the scripts of Unicode have shared what could be read as Latin alignments in the OpenType spec.</p>
+<p>This proposal does not prevent type developers from continuing to share one set of registered alignments among all the scripts of Unicode. Rather, it suggests that if variable font developers want to maintain compression, performance, and quality in multiscript design, then registered axes for the alignments specific to each script are required. And Chinese alignment values that are definable independently of Latin alignment values are a good place to start.</p>
+<h3>D. Motion Axes</h3>
+<p>The essence of designing realistic motion in media with variable fonts requires giving users and programs a simple solution to the following equation: Distance = Rate × Time. The proposed axes enable type developers to define the distances their animations move per cycle of animation, so motion-graphics designers can solve this equation relative to size of use without trial and error on each glyph.</p>
+<p>As variations will undoubtedly be put to the task of animation, these axes create a common meeting point between design and use.</p>
+<h3>E. Glyph Axes</h3>
+<p>The existing OpenType specification allows composites—i.e., reference from a glyph to use another glyph, possibly repositioned or otherwise transformed—to save space and time when developing fonts that repeatedly use the same shape.</p>
+<p>In traditional typefounding, a font developer would not hesitate to create fractions by using a glyph from a smaller master of the same style. In variable fonts, using the same contours of a glyph repeatedly (with deltas for weight, width, and optical size) opens up the possibility of using those and other instances for many such purposes, but only if the developer can pinpoint the instance location ​​of particular glyphs, or glyphs of a particular feature, along a registered axis.</p>
+<h3>F. Composite Axes</h3>
+<p>Composite Axes combine 2 or more primary axes or other composite axes. There are several reasons why the type designer decides to add a composte axis to the Variable Font.</p>
+<ul>
+<li>The Composite Axis refer to a common understanding about the usage. The traditional weight axis <strong>[wght]</strong> most often changes weight width and contrast at the same time, also in relation to the setting of the optical size <strong>[opsz]</strong> axis. </li>
+<li>The composite axis can be used to optimize, compensate or redefine the result of combined primary axes. </li>
+</ul>
+<pre><code class="Python">page = doc.newPage(title='Primary', name='primary.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Primary axes</h2>
+<p>Definitions and recipes</p>
+<h3>xtra</h3>
+<ul>
+<li><strong>Tag</strong> xtra</li>
+<li><strong>Name:</strong> x transparent</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the counters.</li>
+<li><strong>Recipe:</strong> Counter width varies. Axis value scales the width of counters, if they exist. Stems and side-bearings are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000<br />
+Scale interpretation: values can be interpreted as per-mille-of-em. Note that with this range, counters are valid to get negative width.</li>
+<li><strong>Recommended “normal” value:</strong> sample value 400</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>xopq</h3>
+<ul>
+<li><strong>Tag:</strong> xopq</li>
+<li><strong>Name:</strong> x opaque</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> Assigns a “black” per mille value to each instance of the design space.</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>xtrk</h3>
+<ul>
+<li><strong>Tag:</strong> xtrk</li>
+<li><strong>Name:</strong> x tracking</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to both side-bearings for each instance of the design space.</li>
+<li><strong>Recipe:</strong> Counter widths, if they exist, and stems are contant. The axis value is added to the side-bearings on both sides, so the netto increase in with is double the axis amount.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytra</h3>
+<ul>
+<li><strong>Tag:</strong> ytra</li>
+<li><strong>Name:</strong> y transparent</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
+<li><strong>Recipe:</strong> Vertical counter width varies. Axis value scales the width of vertical counters, if they exist. Bars are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 2000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “‘normal”’ value:</strong> Sample value 884</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>yopq</h3>
+<ul>
+<li><strong>Tag:</strong> yopq<br />
+<strong>Name:</strong> y opaque</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
+<li><strong>Recipe:</strong> Bar width varies. Vertical counter heights, if they exist contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “‘normal”’ value:</strong> Sample value 116</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytlc</h3>
+<ul>
+<li><strong>Tag:</strong> ytlc</li>
+<li><strong>Name:</strong> y transparent lowercase</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 1000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> Sample value, 500</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytuc</h3>
+<ul>
+<li><strong>Tag:</strong> ytuc</li>
+<li><strong>Name:</strong> y transparent uppercase</li>
+<li><strong>Description:</strong> a “white” per mille value for each uppercase height in the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 1000<br />
+Scale interpretation: values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> sample value 725</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytde</h3>
+<ul>
+<li><strong>Tag:</strong> ytde</li>
+<li><strong>Name:</strong> y transparent descender</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 0</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal”</strong> value: sample value -250</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytas</h3>
+<ul>
+<li><strong>Tag:</strong> ytas</li>
+<li><strong>Name:</strong> y transparent ascender </li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 1000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> sample value 750</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<pre><code class="Python">page = doc.newPage(title='Composites', name='composites.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Composite axes</h2>
+<pre><code class="Python">page = doc.newPage(title='Usage', name='usage.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Use cases</h2></document>

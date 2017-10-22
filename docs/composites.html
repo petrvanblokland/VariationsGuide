@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+		<meta charset="UTF-8"/>
+		<title>Composites
+		</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/><script charset="UTF-8" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+		<link media="all" href="fonts/webfonts.css" type="text/css" rel="stylesheet"/>
+		<link media="all" href="css/pagebot.css" type="text/css" rel="stylesheet"/>
+		<link href="images/favicon.gif" type="image/gif" rel="icon"/>
+	</head>
+	<body><div class="page"><div class="container mobilenavigation"><div class="row"><div class="twelvecol last"><nav id="nav-wrap">
+		<ul id="nav"><li><a href="index.html">Home</a></li><li><a href="types.html">Types</a></li><li><a href="primary.html">Primary</a></li><li><a href="composites.html">Composites</a></li><li><a href="usage.html">Usage</a></li>
+		</ul></nav><a href="index.html">Parametric Axes</a></div></div></div><div class="container top"><div class="row"><div class="fivecol"><div class="logo"><a href="index.html">Parametric Axes</a></div></div><div class="sevencol last"><nav id="navigation-wrap">
+		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
+		</ol></nav></div></div></div><div class="container introduction"><div class="row"><div class="twelvecol last"><code class="Python">page = doc.newPage(title='Composites', name='composites.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Composite axes</h2>
+<pre></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
+		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
+		</ol></nav></div><div class="fourcol last"></div></div></div><script charset="UTF-8" type="text/javascript">
+
+    jQuery(document).ready(function($){
+      /* prepend menu icon */
+      $('#nav-wrap').prepend('<div id="menu-icon"><img src="images/menu_icon.png"/></div>');
+      
+      /* toggle nav */
+      $("#menu-icon").on("click", function(){
+        $("#nav").slideToggle();
+        $(this).toggleClass("active");
+      });
+    });
+
+	</script>
+</div>
+</body>
+</html>

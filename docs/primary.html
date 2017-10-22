@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+		<meta charset="UTF-8"/>
+		<title>Primary
+		</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/><script charset="UTF-8" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+		<link media="all" href="fonts/webfonts.css" type="text/css" rel="stylesheet"/>
+		<link media="all" href="css/pagebot.css" type="text/css" rel="stylesheet"/>
+		<link href="images/favicon.gif" type="image/gif" rel="icon"/>
+	</head>
+	<body><div class="page"><div class="container mobilenavigation"><div class="row"><div class="twelvecol last"><nav id="nav-wrap">
+		<ul id="nav"><li><a href="index.html">Home</a></li><li><a href="types.html">Types</a></li><li><a href="primary.html">Primary</a></li><li><a href="composites.html">Composites</a></li><li><a href="usage.html">Usage</a></li>
+		</ul></nav><a href="index.html">Parametric Axes</a></div></div></div><div class="container top"><div class="row"><div class="fivecol"><div class="logo"><a href="index.html">Parametric Axes</a></div></div><div class="sevencol last"><nav id="navigation-wrap">
+		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
+		</ol></nav></div></div></div><div class="container introduction"><div class="row"><div class="twelvecol last"><code class="Python">page = doc.newPage(title='Primary', name='primary.html', template='home')
+
+box = page['Introduction']
+</code></pre>
+
+<h2>Primary axes</h2>
+<p>Definitions and recipes</p>
+<h3>xtra</h3>
+<ul>
+<li><strong>Tag</strong> xtra</li>
+<li><strong>Name:</strong> x transparent</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the counters.</li>
+<li><strong>Recipe:</strong> Counter width varies. Axis value scales the width of counters, if they exist. Stems and side-bearings are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000
+Scale interpretation: values can be interpreted as per-mille-of-em. Note that with this range, counters are valid to get negative width.</li>
+<li><strong>Recommended “normal” value:</strong> sample value 400</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>xopq</h3>
+<ul>
+<li><strong>Tag:</strong> xopq</li>
+<li><strong>Name:</strong> x opaque</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> Assigns a “black” per mille value to each instance of the design space.</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>xtrk</h3>
+<ul>
+<li><strong>Tag:</strong> xtrk</li>
+<li><strong>Name:</strong> x tracking</li>
+<li><strong>Type:</strong> Primary axis</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to both side-bearings for each instance of the design space.</li>
+<li><strong>Recipe:</strong> Counter widths, if they exist, and stems are contant. The axis value is added to the side-bearings on both sides, so the netto increase in with is double the axis amount.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytra</h3>
+<ul>
+<li><strong>Tag:</strong> ytra</li>
+<li><strong>Name:</strong> y transparent</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
+<li><strong>Recipe:</strong> Vertical counter width varies. Axis value scales the width of vertical counters, if they exist. Bars are constant.  Outline points within the vertical projection of counters interpolate between the counter edges. Points outside the projection of counters just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 2000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “‘normal”’ value:</strong> Sample value 884</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>yopq</h3>
+<ul>
+<li><strong>Tag:</strong> yopq
+<strong>Name:</strong> y opaque</li>
+<li><strong>Description:</strong> Assigns a “white” per mille value to each instance of the design space, by changing the vertical counters.</li>
+<li><strong>Recipe:</strong> Bar width varies. Vertical counter heights, if they exist contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 2000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “‘normal”’ value:</strong> Sample value 116</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytlc</h3>
+<ul>
+<li><strong>Tag:</strong> ytlc</li>
+<li><strong>Name:</strong> y transparent lowercase</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 1000</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> Sample value, 500</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytuc</h3>
+<ul>
+<li><strong>Tag:</strong> ytuc</li>
+<li><strong>Name:</strong> y transparent uppercase</li>
+<li><strong>Description:</strong> a “white” per mille value for each uppercase height in the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 1000
+Scale interpretation: values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> sample value 725</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytde</h3>
+<ul>
+<li><strong>Tag:</strong> ytde</li>
+<li><strong>Name:</strong> y transparent descender</li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> -1000 to 0</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal”</strong> value: sample value -250</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<h3>ytas</h3>
+<ul>
+<li><strong>Tag:</strong> ytas</li>
+<li><strong>Name:</strong> y transparent ascender </li>
+<li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
+<li><strong>Recipe:</strong> Stem width varies. Counter widths, if they exist, and side-bearings are contant. Outline points within the vertical projection of stems interpolate between the middle of stems. Points outside the projection of stems just move relative. Component positions and their outlines behave as decomposed points.</li>
+<li><strong>Valid numeric range:</strong> 0 to 1000</li>
+<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> sample value 750</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+</ul>
+<pre></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
+		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
+		</ol></nav></div><div class="fourcol last"></div></div></div><script charset="UTF-8" type="text/javascript">
+
+    jQuery(document).ready(function($){
+      /* prepend menu icon */
+      $('#nav-wrap').prepend('<div id="menu-icon"><img src="images/menu_icon.png"/></div>');
+      
+      /* toggle nav */
+      $("#menu-icon").on("click", function(){
+        $("#nav").slideToggle();
+        $(this).toggleClass("active");
+      });
+    });
+
+	</script>
+</div>
+</body>
+</html>
