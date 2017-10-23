@@ -35,7 +35,9 @@ A cook wants to use separate jars for **Flour** and **Vanilla**. And separate di
 
 ![docs/images/FlowerVanillaChowder.png](docs/images/FlowerVanillaChowder.png)
 
-####Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.*
+####Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.
+
+###Design principles
 
 This guide was prepared in July 2017 for presentation to the public, the specification’s owners, and the OpenType Variations working group. Our goal is to record what we have learned about variable fonts and have put into practice, which we believe will be generally useful to the specification, and to propose a new, systematic approach to registering and using axes.
 
