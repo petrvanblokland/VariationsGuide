@@ -108,6 +108,10 @@ box = page['Introduction']
 ## Primary axes
 Definitions and recipes
 
+~~~Python
+box = page['Main']['Content']
+~~~
+
 ###xtra
 
 ![docs/images/animation-xtra.gif](docs/images/animation-xtra.gif)
@@ -125,6 +129,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###xopq
+
+![docs/images/animation-xtra.gif](docs/images/animation-xopq.gif)
 
 * **Tag:** xopq
 * **Name:** x opaque
@@ -145,12 +151,14 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Description:** assigns a “white” per mille value to both side-bearings for each instance of the design space.
 * **Recipe:** Counter widths, if they exist, and stems are contant. The axis value is added to the side-bearings on both sides, so the netto increase in with is double the axis amount.
 * **Valid numeric range:** -1000 to 2000
-* **Scale interpretation:** values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.
+* **Scale interpretation:** Values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.
 * **Suggested programmatic interactions:**
-* **Suggested user interactions:**
+* **Suggested user interactions:** Change distance between glyphs, only affecting the total width. Weight counters and vertical metrics don't change, while that be room for extending serif length and position of connecting strokes. The behavior of this axis is comparable with the tracking in a page-layout program. Here it allows the design to change the glyph shape (e.g. touching script glyphs) if necessary.
 * **Related axis information:**
 
 ###ytra
+
+![docs/images/animation-xtra.gif](docs/images/animation-ytra.gif)
 
 * **Tag:** ytra
 * **Name:** y transparent
@@ -166,6 +174,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 
 ###yopq
 
+![docs/images/animation-xtra.gif](docs/images/animation-yopq.gif)
+
 * **Tag:** yopq
 * **Name:** y opaque
 * **Type:** Primary axis
@@ -179,6 +189,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 * **Related axis information:**
 
 ###ytlc
+
+![docs/images/animation-xtra.gif](docs/images/animation-ytlc.gif)
 
 * **Tag:** ytlc
 * **Name:** y transparent lowercase
@@ -194,6 +206,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 
 ###ytuc
 
+![docs/images/animation-xtra.gif](docs/images/animation-ytuc.gif)
+
 * **Tag:** ytuc
 * **Name:** y transparent uppercase
 * **Type:** Primary axis
@@ -208,6 +222,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em
 
 ###ytde
 
+![docs/images/animation-xtra.gif](docs/images/animation-ytde.gif)
+
 * **Tag:** ytde
 * **Name:** y transparent descender
 * **Type:** Primary axis
@@ -221,6 +237,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em
 * **Related axis information:**
 
 ###ytas
+
+![docs/images/animation-xtra.gif](docs/images/animation-ytas.gif)
 
 * **Tag:** ytas
 * **Name:** y transparent ascender 
@@ -240,7 +258,9 @@ page = doc.newPage(title='Composites', name='composites.html', template='home')
 box = page['Introduction']
 ~~~
 
-##Composite axes
+#Composite axes
+
+## Registered axes
 
 ###wght
 
@@ -251,12 +271,76 @@ box = page['Introduction']
 * **Description:** assigns a “white” per mille value to each instance of the design space
 * **Recipe:** Follows the “traditional” weight axis, which may includes change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.
 * **Valid numeric range:** 0 to 1000
-* **Scale interpretation:** values can be interpreted as per-mille-of-em
+* **Scale interpretation:** Matching the OS/2 range, values can be interpreted as discreet increments of 1.* **Recommended “normal” value:** sample value 750
+* **Suggested programmatic interactions:**
+* **Suggested user interactions:** User wants to change the weight with the emphasis on maintaining the estetics of the shape, or to keep close to the original non-Variable instances of the design. There are no requirements on changing width or any other parameter. Shape and spacing is dependend on the selected optical size.
+* **Related axis information:**
+* **Included primary axes:** *[xtra]*, *[xopq]*, *[xtrk]*, *[ytra]*, *[yopq]*. And possibly also *[ytlc]*, *[ytuc]*, *[ytde]*
+
+###wdth
+
+![docs/images/fitVariableText2.gif](docs/images/fitVariableText2.gif)
+
+* **Tag:** wdth
+* **Name:** width 
+* **Type:** Composite axis (registered)
+* **Description:** Assigns a width per mille value to each instance of the design space. This c
+* **Recipe:** Follows the “traditional” width axis, which may include change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.
+* **Valid numeric range:** 0 to 10. 
+* **Scale interpretation:** Matching the OS/2 range, values can preferably be interpreted as increments of 100. 
+* **Recommended “normal” value:** sample value 400
+* **Suggested programmatic interactions:**
+* **Suggested user interactions:** User wants to change the width with the emphasis on maintaining the estetics of the shape, or to keep close to the original non-Variable instances of the design. There are no requirements on changing weight or any other parameter. Shape and spacing are dependend on the selected optical size.
+* **Related axis information:**
+* **Included primary axes:** Use all parametric axes to compensate for weight change, especially when compressing.  *[xtra]*, *[xopq]*, *[xtrk]*, *[ytra]*, *[yopq]*. And possibly also *[ytlc]*, *[ytuc]*, *[ytde]*
+
+###opsz
+
+* **Tag:** opsz
+* **Name:** optical size 
+* **Type:** Composite axis (registered)
+* **Description:** Make the appearance of the characters similar, indpendent of their opticals size. This compensates for absoute and visual weight change, contrast change, smallest details that can be displayed, vertical metrics and spacing.
+* **Recipe:** Use the metrics of original sizes if they exists. Otherwise make adjustments based on 
+* **Valid numeric range:** 8 - 72
+* **Scale interpretation:** Values can be interpreted as per-mille-of-em
+* **Recommended “normal” value:** 14
+* **Suggested programmatic interactions:**
+* **Suggested user interactions:** The settings of this axis should be invisible to the user. The size selection in the page-layout application with set the value.
+* **Related axis information:**
+* **Included primary axes:** Show optimized for optical size, where the resulting change in absolute weight and width is not important. *[xtra]*, *[xopq]*, *[xtrk]*, *[ytra]*, *[yopq]*. And possibly also *[ytlc]*, *[ytuc]*, *[ytde]*
+
+## Unregistered
+
+###lead
+
+![docs/images/ColumnWidth.gif](docs/images/ColumnWidth.gif)
+
+* **Tag:** lead
+* **Name:** Leading 
+* **Type:** Composite axis 
+* **Description:** Make the appearance of the characters similar, indpendent of their opticals size. This compensates for absoute and visual weight change, contrast change, smallest details that can be displayed, vertical metrics and spacing.
+* **Recipe:** Use a the vertical primary axis to define the height of x-height, capital, asdender and descender, to fill the space between lines of text. 
+* **Valid numeric range:** 
+* **Scale interpretation:** * **Recommended “normal” value:** 
+* **Suggested programmatic interactions:**
+* **Suggested user interactions:**
+* **Related axis information:**
+* **Included primary axes:** Show optimized for optical size, where the resulting change in absolute weight and width is not important. *[xtra]*, *[xopq]*, *[xtrk]*, *[ytra]*, *[yopq]*. And possibly also *[ytlc]*, *[ytuc]*, *[ytde]*
+
+###grad
+
+* **Tag:** grad
+* **Name:** Grade 
+* **Type:** Composite axis 
+* **Description:** Change the weight, while keeping all width the same. 
+* **Recipe:** Use a combination of *[xtra]* and *[xopq]* to change the width of stems, while compensating the total width by changing the counters.   
+* **Valid numeric range:** 18
+* **Scale interpretation:** Values can be interpreted as per-mille-of-em
 * **Recommended “normal” value:** sample value 750
 * **Suggested programmatic interactions:**
 * **Suggested user interactions:**
 * **Related axis information:**
-
+* **Included primary axes:** Show optimized for optical size, where the resulting change in absolute weight and width is not important. *[xtra]*, *[xopq]*, *[xtrk]*, *[ytra]*, *[yopq]*. And possibly also *[ytlc]*, *[ytuc]*, *[ytde]*
 
 ~~~Python
 page = doc.newPage(title='Usage', name='usage.html', template='home')
@@ -266,4 +350,22 @@ box = page['Introduction']
 
 ##Use cases
 
+###Weight change without width change
 
+###Width change without weight change
+
+![docs/images/fitVariableColumns.gif](docs/images/fitVariableColumns.gif)
+
+###Contrast change without width change
+
+###Adapt part of headlines (e.g. stems and bars) to elements in a page layout
+
+### Animated glyphs
+
+### Predictable shadow handling
+
+### Match Latin with non-Latin and visa versa
+
+### Adjustable smallcaps
+
+### Various sets of figures.

@@ -73,6 +73,9 @@ box = page['Introduction']
 
 <h2>Primary axes</h2>
 <p>Definitions and recipes</p>
+<pre><code class="Python">box = page['Main']['Content']
+</code></pre>
+
 <h3>xtra</h3>
 <p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-xtra.gif" /></p>
 <ul>
@@ -89,6 +92,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>xopq</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-xopq.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> xopq</li>
 <li><strong>Name:</strong> x opaque</li>
@@ -109,12 +113,13 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <li><strong>Description:</strong> assigns a “white” per mille value to both side-bearings for each instance of the design space.</li>
 <li><strong>Recipe:</strong> Counter widths, if they exist, and stems are contant. The axis value is added to the side-bearings on both sides, so the netto increase in with is double the axis amount.</li>
 <li><strong>Valid numeric range:</strong> -1000 to 2000</li>
-<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em. The minimum value is also defined so that stems don’t get negative width.</li>
 <li><strong>Suggested programmatic interactions:</strong></li>
-<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong> Change distance between glyphs, only affecting the total width. Weight counters and vertical metrics don't change, while that be room for extending serif length and position of connecting strokes. The behavior of this axis is comparable with the tracking in a page-layout program. Here it allows the design to change the glyph shape (e.g. touching script glyphs) if necessary.</li>
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>ytra</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-ytra.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> ytra</li>
 <li><strong>Name:</strong> y transparent</li>
@@ -129,6 +134,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>yopq</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-yopq.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> yopq</li>
 <li><strong>Name:</strong> y opaque</li>
@@ -143,6 +149,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>ytlc</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-ytlc.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> ytlc</li>
 <li><strong>Name:</strong> y transparent lowercase</li>
@@ -157,6 +164,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em. Note that wi
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>ytuc</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-ytuc.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> ytuc</li>
 <li><strong>Name:</strong> y transparent uppercase</li>
@@ -171,6 +179,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em</li>
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>ytde</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-ytde.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> ytde</li>
 <li><strong>Name:</strong> y transparent descender</li>
@@ -185,6 +194,7 @@ Scale interpretation: values can be interpreted as per-mille-of-em</li>
 <li><strong>Related axis information:</strong></li>
 </ul>
 <h3>ytas</h3>
+<p><img alt="docs/images/animation-xtra.gif" src="docs/images/animation-ytas.gif" /></p>
 <ul>
 <li><strong>Tag:</strong> ytas</li>
 <li><strong>Name:</strong> y transparent ascender </li>
@@ -203,7 +213,8 @@ Scale interpretation: values can be interpreted as per-mille-of-em</li>
 box = page['Introduction']
 </code></pre>
 
-<h2>Composite axes</h2>
+<h1>Composite axes</h1>
+<h2>Registered axes</h2>
 <h3>wght</h3>
 <ul>
 <li><strong>Tag:</strong> wght</li>
@@ -213,15 +224,87 @@ box = page['Introduction']
 <li><strong>Description:</strong> assigns a “white” per mille value to each instance of the design space</li>
 <li><strong>Recipe:</strong> Follows the “traditional” weight axis, which may includes change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.</li>
 <li><strong>Valid numeric range:</strong> 0 to 1000</li>
-<li><strong>Scale interpretation:</strong> values can be interpreted as per-mille-of-em</li>
+<li><strong>Scale interpretation:</strong> Matching the OS/2 range, values can be interpreted as discreet increments of 1.* <strong>Recommended “normal” value:</strong> sample value 750</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong> User wants to change the weight with the emphasis on maintaining the estetics of the shape, or to keep close to the original non-Variable instances of the design. There are no requirements on changing width or any other parameter. Shape and spacing is dependend on the selected optical size.</li>
+<li><strong>Related axis information:</strong></li>
+<li><strong>Included primary axes:</strong> <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
+</ul>
+<h3>wdth</h3>
+<p><img alt="docs/images/fitVariableText2.gif" src="docs/images/fitVariableText2.gif" /></p>
+<ul>
+<li><strong>Tag:</strong> wdth</li>
+<li><strong>Name:</strong> width </li>
+<li><strong>Type:</strong> Composite axis (registered)</li>
+<li><strong>Description:</strong> Assigns a width per mille value to each instance of the design space. This c</li>
+<li><strong>Recipe:</strong> Follows the “traditional” width axis, which may include change of stem width, counters and margins and vertical heights. All measures depend on the selected optical size.</li>
+<li><strong>Valid numeric range:</strong> 0 to 10. </li>
+<li><strong>Scale interpretation:</strong> Matching the OS/2 range, values can preferably be interpreted as increments of 100. </li>
+<li><strong>Recommended “normal” value:</strong> sample value 400</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong> User wants to change the width with the emphasis on maintaining the estetics of the shape, or to keep close to the original non-Variable instances of the design. There are no requirements on changing weight or any other parameter. Shape and spacing are dependend on the selected optical size.</li>
+<li><strong>Related axis information:</strong></li>
+<li><strong>Included primary axes:</strong> Use all parametric axes to compensate for weight change, especially when compressing.  <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
+</ul>
+<h3>opsz</h3>
+<ul>
+<li><strong>Tag:</strong> opsz</li>
+<li><strong>Name:</strong> optical size </li>
+<li><strong>Type:</strong> Composite axis (registered)</li>
+<li><strong>Description:</strong> Make the appearance of the characters similar, indpendent of their opticals size. This compensates for absoute and visual weight change, contrast change, smallest details that can be displayed, vertical metrics and spacing.</li>
+<li><strong>Recipe:</strong> Use the metrics of original sizes if they exists. Otherwise make adjustments based on </li>
+<li><strong>Valid numeric range:</strong> 8 - 72</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
+<li><strong>Recommended “normal” value:</strong> 14</li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong> The settings of this axis should be invisible to the user. The size selection in the page-layout application with set the value.</li>
+<li><strong>Related axis information:</strong></li>
+<li><strong>Included primary axes:</strong> Show optimized for optical size, where the resulting change in absolute weight and width is not important. <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
+</ul>
+<h2>Unregistered</h2>
+<h3>lead</h3>
+<p><img alt="docs/images/ColumnWidth.gif" src="docs/images/ColumnWidth.gif" /></p>
+<ul>
+<li><strong>Tag:</strong> lead</li>
+<li><strong>Name:</strong> Leading </li>
+<li><strong>Type:</strong> Composite axis </li>
+<li><strong>Description:</strong> Make the appearance of the characters similar, indpendent of their opticals size. This compensates for absoute and visual weight change, contrast change, smallest details that can be displayed, vertical metrics and spacing.</li>
+<li><strong>Recipe:</strong> Use a the vertical primary axis to define the height of x-height, capital, asdender and descender, to fill the space between lines of text. </li>
+<li><strong>Valid numeric range:</strong> </li>
+<li><strong>Scale interpretation:</strong> * <strong>Recommended “normal” value:</strong> </li>
+<li><strong>Suggested programmatic interactions:</strong></li>
+<li><strong>Suggested user interactions:</strong></li>
+<li><strong>Related axis information:</strong></li>
+<li><strong>Included primary axes:</strong> Show optimized for optical size, where the resulting change in absolute weight and width is not important. <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
+</ul>
+<h3>grad</h3>
+<ul>
+<li><strong>Tag:</strong> grad</li>
+<li><strong>Name:</strong> Grade </li>
+<li><strong>Type:</strong> Composite axis </li>
+<li><strong>Description:</strong> Change the weight, while keeping all width the same. </li>
+<li><strong>Recipe:</strong> Use a combination of <em>[xtra]</em> and <em>[xopq]</em> to change the width of stems, while compensating the total width by changing the counters.   </li>
+<li><strong>Valid numeric range:</strong> 18</li>
+<li><strong>Scale interpretation:</strong> Values can be interpreted as per-mille-of-em</li>
 <li><strong>Recommended “normal” value:</strong> sample value 750</li>
 <li><strong>Suggested programmatic interactions:</strong></li>
 <li><strong>Suggested user interactions:</strong></li>
 <li><strong>Related axis information:</strong></li>
+<li><strong>Included primary axes:</strong> Show optimized for optical size, where the resulting change in absolute weight and width is not important. <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
 </ul>
 <pre><code class="Python">page = doc.newPage(title='Usage', name='usage.html', template='home')
 
 box = page['Introduction']
 </code></pre>
 
-<h2>Use cases</h2></document>
+<h2>Use cases</h2>
+<h3>Weight change without width change</h3>
+<h3>Width change without weight change</h3>
+<p><img alt="docs/images/fitVariableColumns.gif" src="docs/images/fitVariableColumns.gif" /></p>
+<h3>Contrast change without width change</h3>
+<h3>Adapt part of headlines (e.g. stems and bars) to elements in a page layout</h3>
+<h3>Animated glyphs</h3>
+<h3>Predictable shadow handling</h3>
+<h3>Match Latin with non-Latin and visa versa</h3>
+<h3>Adjustable smallcaps</h3>
+<h3>Various sets of figures.</h3></document>
