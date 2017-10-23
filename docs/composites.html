@@ -21,7 +21,7 @@ box = page['Introduction']
 </code></pre>
 
 <h1>Composite axes</h1>
-<h3>Composite axes are made from the behavior of 2 or more primary axes. In a traditional type design the range of weights are likely also to change width. But that does not make Composite Axes an automatic mathematical addition, as there is the possibility to add outline changes, specifically for the combination.</h3>
+<h3>Composite Axes combine 2 or more primary axes or other composite axes. There are several reasons why the type designer decides to add a composte axis to the Variable Font. In a traditional type design the range of weights are likely also to change width. But that does not make Composite Axes an automatic mathematical addition, as there is the possibility to add outline changes, specifically for the combination.</h3>
 <pre></div></div></div><div class="container mainContent"><div class="row"><div class="eightcol"><div><code class="Python">box = page['Main']['Content']
 </code></pre>
 
@@ -103,7 +103,14 @@ box = page['Introduction']
 <li><strong>Related axis information:</strong></li>
 <li><strong>Included primary axes:</strong> Show optimized for optical size, where the resulting change in absolute weight and width is not important. <em>[xtra]</em>, <em>[xopq]</em>, <em>[xtrk]</em>, <em>[ytra]</em>, <em>[yopq]</em>. And possibly also <em>[ytlc]</em>, <em>[ytuc]</em>, <em>[ytde]</em></li>
 </ul>
-<pre><div><div></div></div><div><div></div></div></div></div><div class="fourcol"><div></div></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
+<pre><div><div></div></div><div><div></div></div></div></div><div class="fourcol"><div><code class="Python">box = page['Main']['Side']
+</code></pre>
+
+<ul>
+<li>The Composite Axis refer to a common understanding about the usage. The traditional weight axis <strong>[wght]</strong> most often changes weight width and contrast at the same time, also in relation to the setting of the optical size <strong>[opsz]</strong> axis. </li>
+<li>The composite axis can be used to optimize, compensate or redefine the result of combined primary axes. </li>
+</ul>
+<pre></div></div></div></div><div class="container footer"><div class="row"><div class="eightcol"><nav id="navigation-wrap">
 		<ol><li><a href="usage.html">Usage</a></li><li><a href="composites.html">Composites</a></li><li><a href="primary.html">Primary</a></li><li><a href="types.html">Types</a></li><li><a href="index.html">Home</a></li>
 		</ol></nav></div><div class="fourcol last"></div></div></div><script charset="UTF-8" type="text/javascript">
 

@@ -67,12 +67,6 @@ box = page['Introduction']
 Type users are familiar with the attributes of a typeface family that combine to make up its appearance. Traditionally, these attributes are available as named and instantiated styles in font families. Some of these attributes are already recorded in fonts conforming to the OpenType v1.0 specification, as values in the OS/2 table, and in other tables of the SFNT format in general.
 
 ~~~Python
-box = page['Main']['Content']
-~~~
-
-###A. Primary Type Axes
-
-~~~Python
 box = page['Main']['Side']
 ~~~
 This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.
@@ -81,14 +75,24 @@ This proposal is for a new and more complete set of typographic axes, with a uni
 box = page['Main']['Content']
 ~~~
 
+###A. Primary Type Axes
+
+![docs/images/animation-xtra.gif](docs/images/animation-xtra.gif)
+
 Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.
 
 ###B. Treatment Axes
+
+![docs/images/animation-otln.gif](docs/images/animation-otln.gif)
+
 Many treatments of typography—outlining or underlining, as well as adding drop shadows and more—are currently available to users via page description languages and applications, where only a uniform, size-independent transformation of all the glyphs of an instance is the result.
 
 Because fonts usually provide a better solution than smearing regular type for “bold” or “obliquing” it for “italic,” and because optical size (the most common treatment of all) is a registered axis, variation axes can provide these and other treatments better than applications. This gives users more precise control per treatment, and per glyph, while also informing applications that these axes exist, and what their value systems are. It also relieves apps from having to provide the treatment, should the user desire to do so, with the font providing the means.
 
 ###C. Non-Latin Axes
+
+![docs/images/animation-xtch.gif](docs/images/animation-xtch.gif)
+
 Today’s multiscript type designer faces two major options when mixing more than one script in a typeface family: to compromise one or both scripts to the ideals of the other; or, alternatively, to make multiple instances of the font to provide uncompromised versions of each.
 
 The compromises occur in all of the typographic parameters listed in A. Primary Type Axes, and surface in the choices that need to be made in presenting a unified appearance of width, weight, and height among glyphs of different scripts. These compromises come in a variety of sizes, from small (as when Latin and Cyrillic need to work together) to large (as when Chinese and Arabic have to work together). And, of course, there are the supersized compromises in OS fonts, where the typeface family contains fifty-three scripts.
@@ -100,16 +104,25 @@ Alignments operate differently in typography. So in variable fonts, they must be
 This proposal does not prevent type developers from continuing to share one set of registered alignments among all the scripts of Unicode. Rather, it suggests that if variable font developers want to maintain compression, performance, and quality in multiscript design, then registered axes for the alignments specific to each script are required. And Chinese alignment values that are definable independently of Latin alignment values are a good place to start.
 
 ###D. Motion Axes
+
+![docs/images/animation-rxad.gif](docs/images/animation-rxad.gif)
+
 The essence of designing realistic motion in media with variable fonts requires giving users and programs a simple solution to the following equation: Distance = Rate × Time. The proposed axes enable type developers to define the distances their animations move per cycle of animation, so motion-graphics designers can solve this equation relative to size of use without trial and error on each glyph.
 
 As variations will undoubtedly be put to the task of animation, these axes create a common meeting point between design and use.
 
 ###E. Glyph Axes
+
+![docs/images/animation-rxad.gif](docs/images/animation-rxad.gif)
+
 The existing OpenType specification allows composites—i.e., reference from a glyph to use another glyph, possibly repositioned or otherwise transformed—to save space and time when developing fonts that repeatedly use the same shape.
 
 In traditional typefounding, a font developer would not hesitate to create fractions by using a glyph from a smaller master of the same style. In variable fonts, using the same contours of a glyph repeatedly (with deltas for weight, width, and optical size) opens up the possibility of using those and other instances for many such purposes, but only if the developer can pinpoint the instance location ​​of particular glyphs, or glyphs of a particular feature, along a registered axis.
 
 ###F. Composite Axes
+
+![docs/images/animation-votf.gif](docs/images/animation-votf.gif)
+
 Composite Axes combine 2 or more primary axes or other composite axes. There are several reasons why the type designer decides to add a composte axis to the Variable Font.
 
 * The Composite Axis refer to a common understanding about the usage. The traditional weight axis **[wght]** most often changes weight width and contrast at the same time, also in relation to the setting of the optical size **[opsz]** axis. 
@@ -276,7 +289,14 @@ box = page['Introduction']
 
 #Composite axes
 
-###Composite axes are made from the behavior of 2 or more primary axes. In a traditional type design the range of weights are likely also to change width. But that does not make Composite Axes an automatic mathematical addition, as there is the possibility to add outline changes, specifically for the combination.
+###Composite Axes combine 2 or more primary axes or other composite axes. There are several reasons why the type designer decides to add a composte axis to the Variable Font. In a traditional type design the range of weights are likely also to change width. But that does not make Composite Axes an automatic mathematical addition, as there is the possibility to add outline changes, specifically for the combination.
+
+~~~Python
+box = page['Main']['Side']
+~~~
+
+* The Composite Axis refer to a common understanding about the usage. The traditional weight axis **[wght]** most often changes weight width and contrast at the same time, also in relation to the setting of the optical size **[opsz]** axis. 
+* The composite axis can be used to optimize, compensate or redefine the result of combined primary axes. 
 
 ~~~Python
 box = page['Main']['Content']
