@@ -12,8 +12,8 @@ doc.footerHtml = &quot;&quot;&quot;Let us know what you think. Do you have any q
 box = page['Introduction']
 </code></pre>
 
-<h1>Parametric axes</h1>
-<h3>A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.</h3>
+<h2>Parametric axes</h2>
+<h4>A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.</h4>
 <pre><code class="Python">box = page['Main']['Content']
 </code></pre>
 

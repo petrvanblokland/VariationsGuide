@@ -12,9 +12,9 @@ doc.footerHtml = """Let us know what you think. Do you have any questions for us
 box = page['Introduction']
 ~~~
 
-#Parametric axes
+##Parametric axes
 
-###A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.
+####A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.
 
 ~~~Python
 box = page['Main']['Content']
