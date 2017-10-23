@@ -302,8 +302,6 @@ box = page['Main']['Side']
 box = page['Main']['Content']
 ~~~
 
-## Registered axes
-
 ###wght
 
 * **Tag:** wght

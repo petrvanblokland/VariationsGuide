@@ -239,7 +239,6 @@ box = page['Introduction']
 <pre><code class="Python">box = page['Main']['Content']
 </code></pre>
 
-<h2>Registered axes</h2>
 <h3>wght</h3>
 <ul>
 <li><strong>Tag:</strong> wght</li>
