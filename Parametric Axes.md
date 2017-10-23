@@ -25,7 +25,7 @@ A type designer can rightfully point out that a change in weight [wght] also imp
 
 The necessity and use of parametric axes in Variable Fonts can best be illustrated with other modular environments, such as the preparation of food.
 
-<img src="docs/images/FlowerVanilla.png" width="50%"/>
+<img src="docs/images/FlourVanilla.png" width="50%"/>
 
 ####If the level of **Granularity** is a measure for flour to be used in certain kinds of bread, then the bakery would not expect an increasing amount of **Vanilla** to be mixed with that level.
 
@@ -37,7 +37,7 @@ To control the quality and behavior of any kind of product, the process of creat
 
 A cook wants to use separate jars for **Flour** and **Vanilla**. And separate dispensers for **Pepper** and **Salt**, to mix them in exactly the right amount when using them.
 
-<img src="docs/images/FlowerVanillaChowder.png" width="50%"/>
+<img src="docs/images/FlourVanillaChowder.png" width="50%"/>
 
 ####Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.
 
