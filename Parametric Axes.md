@@ -14,7 +14,11 @@ box = page['Introduction']
 
 #Parametric axes
 
-A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.
+###A lot has already been written about the naming of axes in Variable Font, but creating standards and definintions about what they exactly do, is falling behind.
+
+~~~Python
+box = page['Main']['Content']
+~~~
 
 The reason for that is not a lack of interest, but that the current discussion is on the side with the most variable freedom and design choices exists.
 A type designer can rightfully point out that a change in weight [wght] also implicates a change in width, but the amount depends on optical size, on the details of the design and on taste of the designer. 
@@ -37,11 +41,13 @@ A cook wants to use separate jars for **Flour** and **Vanilla**. And separate di
 
 ####Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.
 
-###Design principles
+###Proposing axes
 
 This guide was prepared in July 2017 for presentation to the public, the specification’s owners, and the OpenType Variations working group. Our goal is to record what we have learned about variable fonts and have put into practice, which we believe will be generally useful to the specification, and to propose a new, systematic approach to registering and using axes.
 
 This proposal does not seek to classify the designs of typefaces parametrically, only what the values of the parameters are. Furthermore, it is offered as a beginning, suggesting the need for—but not containing—suggestions for many important attributes of non-Latin fonts.
+
+###Registering axes
 
 The registration of the axes here is also intended to be used as part of a system including the registration of what function an axis performs for programs and/or users along the existing path from script selection to the rendered glyph in a document, aka the Mantra. Documentation of that part of the system, including the registration of what function an axis provides, is still in development and will follow soon.
 
@@ -58,20 +64,24 @@ box = page['Introduction']
 
 ## Types of axes
 
-###A. Primary Type Axes
 Type users are familiar with the attributes of a typeface family that combine to make up its appearance. Traditionally, these attributes are available as named and instantiated styles in font families. Some of these attributes are already recorded in fonts conforming to the OpenType v1.0 specification, as values in the OS/2 table, and in other tables of the SFNT format in general.
-
-~~~Python
-box = page['Main']['Side']
-~~~
-
-Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.
 
 ~~~Python
 box = page['Main']['Content']
 ~~~
 
+###A. Primary Type Axes
+
+~~~Python
+box = page['Main']['Side']
+~~~
 This proposal is for a new and more complete set of typographic axes, with a unified value system, concern for non-Latin, responsive typography, compression, and more. The registration of a full set of attributes allows type developers to combine the modern, potentially much larger font family into a single file; it allows software developers and educators to have a clearer picture of how typography is shaped by the basic attributes; and it allows type users to control the attributes more precisely, whether that control is programmatic or manual via a user interface.
+
+~~~Python
+box = page['Main']['Content']
+~~~
+
+Today's font families contain instances pertaining to attributes of registered axes of OpenType, like width, weight, and optical size. In addition, some existing font families contain instances pertaining to grades, descender length, multiscript font mixing for different vertical proportions, and font families contain instances made for specific output, or with specific data to suite particular platform requirements.
 
 ###B. Treatment Axes
 Many treatments of typography—outlining or underlining, as well as adding drop shadows and more—are currently available to users via page description languages and applications, where only a uniform, size-independent transformation of all the glyphs of an instance is the result.
@@ -266,6 +276,12 @@ box = page['Introduction']
 
 #Composite axes
 
+###Composite axes are made from the behavior of 2 or more primary axes. In a traditional type design the range of weights are likely also to change width. But that does not make Composite Axes an automatic mathematical addition, as there is the possibility to add outline changes, specifically for the combination.
+
+~~~Python
+box = page['Main']['Content']
+~~~
+
 ## Registered axes
 
 ###wght
@@ -355,6 +371,10 @@ box = page['Introduction']
 ~~~
 
 ##Use cases
+
+~~~Python
+box = page['Main']['Content']
+~~~
 
 ###Weight change without width change
 
