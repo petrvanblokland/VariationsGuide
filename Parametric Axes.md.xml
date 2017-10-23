@@ -20,13 +20,13 @@ box = page['Introduction']
 <p>The reason for that is not a lack of interest, but that the current discussion is on the side with the most variable freedom and design choices exists.<br />
 A type designer can rightfully point out that a change in weight [wght] also implicates a change in width, but the amount depends on optical size, on the details of the design and on taste of the designer. </p>
 <p>The necessity and use of parametric axes in Variable Fonts can best be illustrated with other modular environments, such as the preparation of food.</p>
-<p><img src="docs/images/FlourVanilla.png" width="50%"/></p>
+<p><img src="docs/images/FlourVanilla.png" width="200"/></p>
 <h4>If the level of <strong>Granularity</strong> is a measure for flour to be used in certain kinds of bread, then the bakery would not expect an increasing amount of <strong>Vanilla</strong> to be mixed with that level.</h4>
 <p><img alt="docs/images/FlourSaltVanillaPepper.png" src="docs/images/FlourSaltVanillaPepper.png" /></p>
 <h4>Chefs may never be able to agree on the exact ingredients, process and taste of the best <strong>Chowder</strong>, but most will agree that <strong>Salt</strong>, <strong>Pepper</strong> and <strong>Potatos</strong> are separate ingredients. Not to be used in a pre-ordered mixture.</h4>
 <p>To control the quality and behavior of any kind of product, the process of creation has to be broken down into modular behavior, to the least possible amount of independent parameters. </p>
 <p>A cook wants to use separate jars for <strong>Flour</strong> and <strong>Vanilla</strong>. And separate dispensers for <strong>Pepper</strong> and <strong>Salt</strong>, to mix them in exactly the right amount when using them.</p>
-<p><img src="docs/images/FlourVanillaChowder.png" width="50%"/></p>
+<p><img src="docs/images/FlourVanillaChowder.png" width="200"/></p>
 <h4>Specific combinations can be useful to save time in large volumes or when the ingedients interact, so their balance needs to be prepared. But even with such half products, the preparation still starts with the choice of separate ingredients.</h4>
 <h3>Proposing axes</h3>
 <p>This guide was prepared in July 2017 for presentation to the public, the specification’s owners, and the OpenType Variations working group. Our goal is to record what we have learned about variable fonts and have put into practice, which we believe will be generally useful to the specification, and to propose a new, systematic approach to registering and using axes.</p>
